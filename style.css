@@ -33,7 +33,7 @@ table {
   
   thead tr {
     background-color: rgb(235, 186, 82);
-    color: cornsilk;
+    color: rgb(236, 234, 226);
   }
   
   tbody tr:nth-child(even) {
