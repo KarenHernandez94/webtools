@@ -28,11 +28,11 @@ table {
   }
   
   tr {
-    border-bottom: thin solid black;
+    border-bottom: thin solid rgb(0, 0, 0);
   }
   
   thead tr {
-    background-color: darkblue;
+    background-color: rgb(235, 186, 82);
     color: cornsilk;
   }
   
@@ -41,5 +41,5 @@ table {
   }
   
   tbody tr:hover {
-    background-color: lightgreen;
+    background-color: rgb(145, 240, 235);
   }
