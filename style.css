@@ -40,11 +40,10 @@ table {
     background-color: rgb(212, 201, 192);}
   dt {
     background-color: rgb(247, 213, 139);}
-div img {
-  border-collapse: collapse;
+div img {border-collapse: collapse;
   padding: 8px;
   width: 700px;
-  height: 500px;}
+  height: 500px; }
 caption {background-color: rgb(247, 213, 139);}
   
   
