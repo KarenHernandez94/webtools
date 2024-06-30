@@ -10,3 +10,36 @@ footer {
 nav {
     background-color: pink;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table caption {
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr {
+    border-bottom: thin solid black;
+  }
+  
+  thead tr {
+    background-color: darkblue;
+    color: cornsilk;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: silver;
+  }
+  
+  tbody tr:hover {
+    background-color: lightgreen;
+  }
