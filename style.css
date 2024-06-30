@@ -33,11 +33,11 @@ table {
   
   thead tr {
     background-color: rgb(235, 186, 82);
-    color: rgb(236, 234, 226);
+    color: rgb(0, 0, 0);
   }
   
   tbody tr:nth-child(even) {
-    background-color: silver;
+    background-color: rgb(138, 114, 88);
   }
   
   tbody tr:hover {
