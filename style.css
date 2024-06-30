@@ -3,40 +3,47 @@ background-color: white;}
 head {
   background-color: pink;}
 h1 {
-    background-color: pink;}
+    background-color: pink;
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 footer {
     background-color: pink;}
 nav {
     background-color: pink;
     color: rgb(0, 0, 0);}
-nav {}
-
+nav a {
+  display: inline-block;
+  padding: .5em;
+  color: rgb(0, 0, 0);
+  text-decoration: none;} 
+nav a:hover {
+  background-color: rgb(247, 213, 139);}
 table {
     border-collapse: collapse;
     width: 100%;}
-  
   table caption {
     font-weight: 800;
     font-size: 1.5rem;}
-  
   th,
   td {
     text-align: left;
     padding: 8px;}
-  
   tr {
     border-bottom: thin solid rgb(0, 0, 0);}
-  
-  thead tr {
+    thead tr {
     background-color: rgb(247, 213, 139);
     color: rgb(0, 0, 0);}
-  
-  tbody tr:nth-child(even) {
+    tbody tr:nth-child(even) {
     background-color: rgb(177, 164, 150);}
-  
-  tbody tr:hover {
+    tbody tr:hover {
     background-color: rgb(212, 201, 192);}
   dt {
     background-color: rgb(247, 213, 139);}
-    table {border-collapse: collapse;}
+div img {
+  width: 900px;
+  height: 600px;
+  border: 2px palevioletred;}
+caption {background-color: rgb(247, 213, 139);}
+  
   
