@@ -10,6 +10,8 @@ h1 {
 footer {
     background-color: pink;}
 nav {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
     background-color: pink;
     color: rgb(0, 0, 0);}
 nav a {
@@ -17,8 +19,7 @@ nav a {
   padding: .5em;
   color: rgb(0, 0, 0);
   text-decoration: none;} 
-nav a:hover {
-  background-color: rgb(247, 213, 139);}
+nav a:hover {background-color: rgb(247, 213, 139);}
 table {
     border-collapse: collapse;
     width: 100%;}
@@ -41,8 +42,8 @@ table {
   dt {
     background-color: rgb(247, 213, 139);}
 div img {
-  width: 900px;
-  height: 600px;
+  width: 772px;
+  height: 500px;
   border: 2px palevioletred;}
 caption {background-color: rgb(247, 213, 139);}
   
