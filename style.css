@@ -9,6 +9,7 @@ footer {
 }
 nav {
     background-color: pink;
+    color: rgb(0, 0, 0);
 }
 
 table {
@@ -41,5 +42,5 @@ table {
   }
   
   tbody tr:hover {
-    background-color: rgb(189, 188, 187);
+    background-color: rgb(179, 164, 152);
   }
