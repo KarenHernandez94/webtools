@@ -9,11 +9,10 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 footer {
     background-color: pink;}
-nav {
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    background-color: pink;
-    color: rgb(0, 0, 0);}
+nav {text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+  background-color: pink;
+  color: rgb(0, 0, 0);}
 nav a {
   display: inline-block;
   padding: .5em;
