@@ -37,9 +37,9 @@ table {
   }
   
   tbody tr:nth-child(even) {
-    background-color: rgb(158, 133, 106);
+    background-color: rgb(177, 164, 150);
   }
   
   tbody tr:hover {
-    background-color: rgb(159, 241, 237);
+    background-color: rgb(189, 188, 187);
   }
