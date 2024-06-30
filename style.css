@@ -1,53 +1,42 @@
 html {
-background-color: white;
-}
+background-color: white;}
 head {
-  background-color: pink;
-}
+  background-color: pink;}
 h1 {
-    background-color: pink;
-}
+    background-color: pink;}
 footer {
-    background-color: pink;
-}
+    background-color: pink;}
 nav {
     background-color: pink;
-    color: rgb(0, 0, 0);
-}
+    color: rgb(0, 0, 0);}
+nav {}
 
 table {
     border-collapse: collapse;
-    width: 100%;
-  }
+    width: 100%;}
   
   table caption {
     font-weight: 800;
-    font-size: 1.5rem;
-  }
+    font-size: 1.5rem;}
   
   th,
   td {
     text-align: left;
-    padding: 8px;
-  }
+    padding: 8px;}
   
   tr {
-    border-bottom: thin solid rgb(0, 0, 0);
-  }
+    border-bottom: thin solid rgb(0, 0, 0);}
   
   thead tr {
     background-color: rgb(247, 213, 139);
-    color: rgb(0, 0, 0);
-  }
+    color: rgb(0, 0, 0);}
   
   tbody tr:nth-child(even) {
-    background-color: rgb(177, 164, 150);
-  }
+    background-color: rgb(177, 164, 150);}
   
   tbody tr:hover {
-    background-color: rgb(212, 201, 192);
-  }
+    background-color: rgb(212, 201, 192);}
   dt {
-    background-color: rgb(247, 213, 139);
-  }
+    background-color: rgb(247, 213, 139);}
+    table {border-collapse: collapse;}
   
