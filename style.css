@@ -1,6 +1,9 @@
 html {
 background-color: white;
 }
+head {
+  background-color: pink;
+}
 h1 {
     background-color: pink;
 }
@@ -47,4 +50,4 @@ table {
   dt {
     background-color: rgb(247, 213, 139);
   }
-  }
+  
