@@ -1,6 +1,9 @@
 html {
 background-color: white;
 }
-.header {
+h1 {
+    background-color: pink;
+}
+footer {
     background-color: pink;
 }

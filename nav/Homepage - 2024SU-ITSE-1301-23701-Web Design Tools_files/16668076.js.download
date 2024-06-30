@@ -1,0 +1,27 @@
+console.log("Brightspace location " + window.location.href); 
+window.eesyLaunchConfig = {
+    host: 'dcccd-bs.eesysoft.com',
+    key: 'r9hF45i1',
+    supportTab: 'false'
+};
+
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
+
+(function() {
+    if(!inIframe()) {
+      var e = document.createElement('script');
+      e.src = '//' + window.eesyLaunchConfig.host + "/resources/js/d2l/launch.js?stmp=" + new Date().getTime();
+      e.src = '//' + window.eesyLaunchConfig.host + "/resources/js/d2l/launch.js";
+      e.async = true;
+      e.type = 'text/javascript';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(e, s);
+    }
+} ());

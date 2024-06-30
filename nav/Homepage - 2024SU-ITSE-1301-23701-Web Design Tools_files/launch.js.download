@@ -1,0 +1,112 @@
+(function () {
+    window.eesy_course_id = getCourseId();
+
+    window.sessionStorage.eesysoft_active_account_id = -1;
+
+    if (localStorage.getItem('Session.UserId') === undefined || localStorage.getItem('Session.UserId') === null) {
+        window.sessionStorage.eesysoft_session_key = undefined;
+        window.sessionStorage.eesysoft_active_user_id = undefined;
+    } else if (
+        window.sessionStorage.eesysoft_session_key &&
+        window.sessionStorage.eesysoft_active_user_id === localStorage.getItem('Session.UserId')
+    ) {
+        launchEesySoft();
+    } else {
+        const getWhoAmI = () => $.get('/d2l/api/lp/1.24/users/whoami');
+        const getMyProfile = () => $.get('/d2l/api/lp/1.24/profile/myProfile');
+        const getMyEnrollments = () => $.get('/d2l/api/lp/1.24/enrollments/myenrollments/');
+
+        Promise.all([getWhoAmI(), getMyProfile(), getMyEnrollments()]).then(([whoami, myProfile, myEnrollments]) => {
+            $.get('/d2l/api/lp/1.24/enrollments/users/' + whoami.Identifier + '/orgUnits/', function (enrollments) {
+                var roles = {};
+                enrollments.Items.forEach(function (item) {
+                    roles[item.Role.Id] = {
+                        id: '' + item.Role.Id,
+                        caption: item.Role.Name,
+                        type: 'role',
+                    };
+                });
+                myEnrollments.Items.forEach(function (item) {
+                    item.Access.LISRoles.forEach(function (LISRole) {
+                        var LISRoleString = ('' + LISRole.split(':').slice(-1)).replaceAll('/', '_');
+                        roles[LISRoleString] = {
+                            id: '' + LISRoleString,
+                            caption: LISRoleString,
+                            type: 'role',
+                        };
+                    });
+                });
+
+                var cfg = window.eesyLaunchConfig || {};
+                var params = {
+                    username: whoami.UniqueName + '/auto/bb',
+                    mail: myProfile.Email == null ? '' : myProfile.Email,
+                    fullname: whoami.FirstName + ' ' + whoami.LastName,
+                    rolesExtended: JSON.stringify(
+                        Object.keys(roles).map(function (key) {
+                            return roles[key];
+                        })
+                    ),
+                    key: cfg.key,
+                };
+
+                $.post('//' + cfg.host + '/UserLogin.jsp?', params, function (loginKey) {
+                    var eesy_k = loginKey.trim();
+                    if (eesy_k != '') {
+                        window.sessionStorage.eesysoft_session_key = eesy_k;
+                        window.sessionStorage.eesysoft_active_user_id = localStorage.getItem('Session.UserId');
+                        launchEesySoft();
+                    }
+                });
+            });
+        });
+    }
+
+    function getCourseId() {
+        var courseId = getCourseIdFromPatterns(['/content/([0-9]+)/Home$', '/home/([0-9]+)$']);
+
+        if (courseId !== null) {
+            return courseId;
+        }
+
+        var ouParam = window.location.search.match('[//?&]ou=([0-9]+)');
+
+        return ouParam == null ? -1 : ouParam[1];
+    }
+
+    function getCourseIdFromPatterns(patterns) {
+        var result = null;
+
+        patterns.forEach(function (pattern) {
+            var m = document.location.pathname.match(pattern);
+            if (m != null) {
+                result = m[1];
+                return;
+            }
+        });
+
+        return result;
+    }
+
+    function launchEesySoft() {
+        var __eesyEng = document.createElement('script');
+        var cfg = window.eesyLaunchConfig || {};
+
+        __eesyEng.src =
+            '//' +
+            cfg.host +
+            '/loader.jsp' +
+            '?stmp=' +
+            new Date().getTime() +
+            '&showquicklink=' +
+            cfg.supportTab +
+            '&k=' +
+            window.sessionStorage.eesysoft_session_key;
+
+        __eesyEng.async = true;
+        __eesyEng.type = 'text/javascript';
+
+        var __element = document.getElementsByTagName('script')[0];
+        __element.parentNode.insertBefore(__eesyEng, __element);
+    }
+})();

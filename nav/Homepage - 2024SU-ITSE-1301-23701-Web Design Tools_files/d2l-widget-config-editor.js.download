@@ -1,0 +1,413 @@
+/**
+`configeditor`
+*/
+
+import {
+	L as LitElement,
+	c as css,
+	h as html
+} from 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/lit-element.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/typography.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/loading-spinner.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/button.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/icon.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/icon.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/button-subtle.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/alert-toast.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/input-text.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/input-textarea.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/floating-buttons.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/d2l-tabs.js';
+import 'https://s.brightspace.com/lib/bsi/20.21.8-230/unbundled/tab-panel.js';
+
+class WidgetConfigEditor extends LitElement {
+
+	static get properties() {
+		return {
+			loaded: {type: Boolean},
+            context: {type: Object},
+            showConfigs : {type: Boolean},
+            saved : {type: Boolean},
+            widgetData : {type:String},
+            widgetDataOrg : {type: String},
+            error: {type: Boolean},
+            errorMessage : {type: String},
+            defaultConfigPath : {type: String},
+            canEdit: {type: Boolean},
+            terms: {type: Object}
+		};
+	}
+
+	static get styles() {
+		return css `
+			:host {
+				display: block;
+				height: 100%;
+                width: 100%;
+				--scroll-max-height: auto;
+				overflow:hidden;
+			}
+            d2l-button-icon{
+                float:right;
+            }
+
+            [invalidjson="true"].d2l-input {
+                border-color: var(--d2l-color-cinnabar);
+            }
+		`;
+	}
+
+	constructor() {
+		super();
+
+        let timestamp = new Date().getTime(); 
+
+        //hardcoded for testing
+        this.widgetData = '';
+        this.context = {};
+        this.loaded = false;
+        this.saved = false;
+        this.error = false;
+        this.errorMessage = "";
+        this.defaultConfigPath = widgetPath + 'config/config.txt?v=' + timestamp;
+        this.showConfigs = false;
+		this.boundMessageListener = this._events.bind(this);
+        this.canEdit = false;
+        this.terms = {
+            editorChangeWidgetConfig: "Change Widget Configuration",
+            editorClose: "Close",
+            editorConfigSavedMessage: "Widget Config Saved",
+            editorCourse: "Course",
+            editorCustomizeWidget: "Customize Widget",
+            editorInvalidJSON: "Invalid JSON",
+            editorNoConfigSet: "No config set",
+            editorOrganization: "Organization",
+            editorReset: "Reset",
+            editorSaveClose: "Save and Close",
+            editorSetDefaultCourseText: "Set the default widget config for this Course.",
+            editorSetDefaultOrgText: "Set the default widget config for the Organization.",
+            editorWidgetConfig: "Widget Config",
+            editorWidgetConfigOrg: "Widget Config Org",
+            editorWidgetConfigSaved: "Widget Config Saved"
+        };
+
+        parent.window.postMessage(JSON.stringify({
+            subject: "getLangTerms",
+            message: {
+                data: {ignoreWidget: true}
+            }
+        }), '*');
+
+		window.addEventListener('message', this.boundMessageListener, false);
+
+	}
+
+	render() {
+       
+        if(this.canEdit){
+            let content = html`
+                <d2l-button-icon translucent title="${this.terms.editorChangeWidgetConfig}" @click="${this._toggleConfigMenu}" text="${this.terms.editorCustomizeWidget}" icon="tier1:more"></d2l-button-icon>
+                ${this.saved ?
+                    html`<d2l-alert-toast open type="default">${this.terms.editorConfigSavedMessage}</d2l-alert-toast>`:
+                    html``
+                }
+            `;
+            
+            if(this.saved){
+                this.saved = false;
+            }
+
+            if(this.showConfigs){
+                content = html`
+                <d2l-tabs>
+                    <d2l-tab-panel text="${this.terms.editorCourse}"> 
+                        <p>${this.terms.editorSetDefaultCourseText}</p>
+                        <div class="configForm">
+                            ${this.error ?
+                                html`<d2l-input-textarea placeholder="${this.terms.editorNoConfigSet}" id="widgetDataText" maxlength="10000" label="${this.terms.editorWidgetConfig}" value="${this.widgetData}"></d2l-input-textarea><p class="d2l-body-small">${this.terms.editorInvalidJSON}</p>`:
+                                html`<d2l-input-textarea placeholder="${this.terms.editorNoConfigSet}" maxlength="10000" id="widgetDataText" label="${this.terms.editorWidgetConfig}" value="${this.widgetData}"></d2l-input-textarea><br>`
+                            }
+                            <d2l-floating-buttons always-float>
+                                <d2l-button primary @click=${() => this._saveAndClose('course')}>${this.terms.editorSaveClose}</d2l-button>
+                                <d2l-button @click="${this._close}">${this.terms.editorClose}</d2l-button>
+                                <d2l-button @click=${() => this._resetFields('course')}>${this.terms.editorReset}</d2l-button>
+                            </d2l-floating-buttons>
+                        </div>
+                    </d2l-tab-panel>
+
+                    <d2l-tab-panel text="${this.terms.editorOrganization}"> 
+                        <p>${this.terms.editorSetDefaultOrgText}</p>
+                        <div class="configForm">
+                            ${this.error ?
+                                html`<d2l-input-textarea placeholder="${this.terms.editorNoConfigSet}" id="widgetDataTextOrg" maxlength="10000" label="${this.terms.editorWidgetConfigOrg}" value="${this.widgetDataOrg}"></d2l-input-textarea><p class="d2l-body-small">${this.terms.editorInvalidJSON}</p>`:
+                                html`<d2l-input-textarea placeholder="${this.terms.editorNoConfigSet}" maxlength="10000" id="widgetDataTextOrg" label="${this.terms.editorWidgetConfigOrg}" value="${this.widgetDataOrg}"></d2l-input-textarea><br>`
+                            }
+                            <d2l-floating-buttons always-float>
+                                <d2l-button primary @click=${() => this._saveAndClose('org')}>${this.terms.editorSaveClose}</d2l-button>
+                                <d2l-button @click="${this._close}">${this.terms.editorClose}</d2l-button>
+                                <d2l-button @click=${() => this._resetFields('org')}>${this.terms.editorReset}</d2l-button>
+                            </d2l-floating-buttons>
+                        </div>
+                    </d2l-tab-panel>
+                </d2l-tabs>
+
+                ${this.saved ?
+                    html`<d2l-alert-toast open type="default">${this.terms.editorWidgetConfigSaved}</d2l-alert-toast>`:
+                    html``
+                }
+                `;
+                
+            }        
+
+            return content;
+        }
+	}
+
+    //open up the config dialog and grab fresh data
+    _toggleConfigMenu() {
+
+        if(!this.showConfigs){
+
+            this.showConfigs = true;
+
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "getWidgetDataConfigOrg",
+                    data: {ignoreWidget: true}
+                }
+            }), '*');
+
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "getWidgetDataConfig",
+                    data: {ignoreWidget: true}
+                }
+            }), '*');
+
+            
+
+        }else{
+            this.showConfigs = false;
+        }
+    }
+
+    //save the widget data then close the modal
+    _saveAndClose(type){
+
+        if(type === "course"){
+            let widgetDataString = this.shadowRoot.getElementById('widgetDataText').value;
+          
+            this.error = false;
+            this.saved = false;
+
+            if(widgetDataString === ""){
+                this.widgetData = widgetDataString;
+                this.saved = true;
+                this._updateWidgetData(type);
+                this._toggleConfigMenu();
+            }else if(this._checkJSON(widgetDataString)){
+                this.widgetData = widgetDataString;
+                this.saved = true;
+                this._updateWidgetData(type);
+                this._toggleConfigMenu();
+            }else{
+                this.error = true;
+                this.errorMessage = this.terms.editorInvalidJSON;
+            }
+
+            this.widgetData = widgetDataString;
+        }else{
+            let widgetDataStringOrg = this.shadowRoot.getElementById('widgetDataTextOrg').value;
+            
+            this.error = false;
+            this.saved = false;
+
+            if(widgetDataStringOrg === ""){
+                this.widgetDataOrg = widgetDataStringOrg;
+                this.saved = true;
+                this._updateWidgetData(type);
+                this._toggleConfigMenu();
+            }else if(this._checkJSON(widgetDataStringOrg)){
+                this.widgetDataOrg = widgetDataStringOrg;
+                this.saved = true;
+                this._updateWidgetData(type);
+                this._toggleConfigMenu();
+            }else{
+                this.error = true;
+                this.errorMessage = this.terms.editorInvalidJSON;
+            }
+
+            this.widgetDataOrg = widgetDataStringOrg;
+        }
+
+        this.requestUpdate();
+    }
+
+    //close the modal and reset state
+    _close(){
+       
+        this.saved = false;
+        this.error = false;
+        this._toggleConfigMenu();
+
+     }
+
+    //reset the fields by pulling the default config from CDN
+    _resetFields(type){
+        fetch(this.defaultConfigPath + new Date().getTime())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(json => {
+            
+            if(type === "org"){
+                this.widgetDataOrg = JSON.stringify(json);
+            }else{
+                this.widgetData = JSON.stringify(json);
+            }
+
+            this.requestUpdate();
+        })
+        .catch(function () {
+            //error
+        })
+    }
+
+    //simple JSON validator 
+    _checkJSON(str){
+        let valid = "";
+        try{
+            valid =  JSON.parse(str);
+        }catch (er){
+            return false;
+        }
+        return true;
+    }
+
+    //prepare our data then send to widget data
+    _updateWidgetData(type){
+
+        let widgetData = {};
+        let widgetDataOrg = {};
+
+        if(this.widgetData === ""){
+            widgetData.Data = "";
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "deleteWidgetDataConfig",
+                    data: {"widgetData": widgetDataOrg}
+                }
+            }), '*');
+        }else{
+            widgetData.Data = JSON.parse(this.widgetData);
+        }
+           
+        if(this.widgetDataOrg === ""){
+            widgetDataOrg.Data = "";
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "deleteWidgetDataConfigOrg",
+                    data: {"widgetData": widgetDataOrg}
+                }
+            }), '*');
+        }else{
+            widgetDataOrg.Data = JSON.parse(this.widgetDataOrg);
+        }
+
+        if(type === "org" && this.widgetDataOrg !== ""){
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "updateWidgetDataOrg",
+                    data: {"widgetData": widgetDataOrg}
+                }
+            }), '*');
+        }else if(this.widgetData !== ""){
+            parent.window.postMessage(JSON.stringify({
+                subject: "doValenceRequest",
+                message: {
+                    route: "updateWidgetData",
+                    data: {"widgetData": widgetData}
+                }
+            }), '*');
+        }
+    }
+
+    //event handler for post message
+	_events(evt) {
+    
+        let payload = JSON.parse(evt.data);
+        let subject = payload.subject;
+
+        switch (subject) {
+            case "doneGetLangTerms":
+                
+
+                let ps = JSON.stringify(payload.message);
+
+                if(payload.message != undefined){
+                    this.terms = JSON.parse(ps);
+                }
+
+                this.requestUpdate('terms',{});
+                break;
+            case "doneGetReplaceStrings":
+                //build widget
+                this.canEdit = JSON.parse(atob(payload.message.session).split('-').pop().toLowerCase());
+                
+                break;
+            case "doneValenceRequest":
+                switch (payload.message.route) {
+                    case "getWidgetDataConfig":
+                       
+                        let data = payload.message.data;
+                        this.widgetData = data.Data;
+
+                        
+                        if(this.widgetData === undefined){
+                            this.widgetData = "";
+                        }
+                        
+                        break;	
+                    case "getWidgetDataConfigOrg":
+                    
+                        let dataOrg = payload.message.data;
+                        this.widgetDataOrg = dataOrg.Data;
+                    
+                        if(this.widgetDataOrg === undefined){
+                            this.widgetDataOrg = "";
+                        }
+                        
+                        break;	
+                    case "updateWidgetData":
+                        //when the update is complete, reset the widget
+                        location.reload(); 
+                        break;	
+                    case "deleteWidgetDataConfig":
+                        //when the update is complete, reset the widget
+                        location.reload(); 
+                        break;
+                    case "updateWidgetDataOrg":
+                        //when the update is complete, reset the widget
+                        location.reload(); 
+                        break;	
+                    case "deleteWidgetDataConfigOrg":
+                        //when the update is complete, reset the widget
+                        location.reload(); 
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            }
+    }
+}
+
+customElements.define('d2l-widget-config-editor', WidgetConfigEditor);

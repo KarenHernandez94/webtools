@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://widgets.lcs.brightspace.com/widgets/visual_toc/20.24.3/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Visual Table of Contents</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Bootstrap CDN CSS -->
+   <link rel="stylesheet" href="./bootstrap(1).min.css">
+   <!-- Widget Styles -->
+   <link rel="stylesheet" href="./visual_toc.min.css">
+   <script src="./d2l-widget-config-editor.js.download" type="module"></script>
+<style id="d2l-colors">
+		html {
+			/* basic grays (lightest to darkest) */
+			--d2l-color-regolith: #f9fbff;
+			--d2l-color-sylvite: #f1f5fb;
+			--d2l-color-gypsum: #e3e9f1;
+			--d2l-color-mica: #cdd5dc;
+			--d2l-color-corundum: #b5bdc2;
+			--d2l-color-chromite: #9ea5a9;
+			--d2l-color-galena: #868c8f;
+			--d2l-color-tungsten: #6e7376;
+			--d2l-color-ferrite: #494c4e;
+
+			/* zircon */
+			--d2l-color-zircon-plus-2: #e0feff;
+			--d2l-color-zircon-plus-1: #00d2ed;
+			--d2l-color-zircon: #008eab;
+			--d2l-color-zircon-minus-1: #035670;
+
+			/* celestine */
+			--d2l-color-celestine-plus-2: #e8f8ff;
+			--d2l-color-celestine-plus-1: #29a6ff;
+			--d2l-color-celestine: #006fbf;
+			--d2l-color-celestine-minus-1: #004489;
+
+			/* amethyst */
+			--d2l-color-amethyst-plus-2: #f2f0ff;
+			--d2l-color-amethyst-plus-1: #8982ff;
+			--d2l-color-amethyst: #6038ff;
+			--d2l-color-amethyst-minus-1: #4500db;
+
+			/* fluorite */
+			--d2l-color-fluorite-plus-2: #f9ebff;
+			--d2l-color-fluorite-plus-1: #ce68fa;
+			--d2l-color-fluorite: #9d1fd4;
+			--d2l-color-fluorite-minus-1: #6900a0;
+
+			/* tourmaline */
+			--d2l-color-tourmaline-plus-2: #ffebf6;
+			--d2l-color-tourmaline-plus-1: #fd4e9d;
+			--d2l-color-tourmaline: #d40067;
+			--d2l-color-tourmaline-minus-1: #990056;
+
+			/* cinnabar */
+			--d2l-color-cinnabar-plus-2: #ffede8;
+			--d2l-color-cinnabar-plus-1: #ff575a;
+			--d2l-color-cinnabar: #cd2026;
+			--d2l-color-cinnabar-minus-1: #990006;
+
+			/* carnelian */
+			--d2l-color-carnelian-plus-1: #fff3e0;
+			--d2l-color-carnelian: #e87511;
+			--d2l-color-carnelian-minus-1: #ba4700;
+			--d2l-color-carnelian-minus-2: #7d2600;
+
+			/* citrine */
+			--d2l-color-citrine-plus-1: #fff9d6;
+			--d2l-color-citrine: #ffba59;
+			--d2l-color-citrine-minus-1: #c47400;
+			--d2l-color-citrine-minus-2: #7a4300;
+
+			/* peridot */
+			--d2l-color-peridot-plus-1: #efffd9;
+			--d2l-color-peridot: #8ad934;
+			--d2l-color-peridot-minus-1: #4a8f00;
+			--d2l-color-peridot-minus-2: #2f5e00;
+
+			/* olivine */
+			--d2l-color-olivine-plus-1: #e7ffe3;
+			--d2l-color-olivine: #46a661;
+			--d2l-color-olivine-minus-1: #027a21;
+			--d2l-color-olivine-minus-2: #005614;
+
+			/* malachite */
+			--d2l-color-malachite-plus-1: #e3fff5;
+			--d2l-color-malachite: #2de2c0;
+			--d2l-color-malachite-minus-1: #00a490;
+			--d2l-color-malachite-minus-2: #00635e;
+
+			/* primary accent */
+			--d2l-color-primary-accent-action: var(--d2l-color-celestine);
+			--d2l-color-primary-accent-indicator: var(--d2l-color-carnelian);
+
+			/* feedback */
+			--d2l-color-feedback-error: var(--d2l-color-cinnabar);
+			--d2l-color-feedback-warning: var(--d2l-color-carnelian);
+			--d2l-color-feedback-success: var(--d2l-color-olivine);
+			--d2l-color-feedback-action: var(--d2l-color-celestine);
+		}
+	</style><style id="d2l-typography-font-face">
+		@font-face {
+			font-family: 'Lato';
+			font-style: normal;
+			font-weight: 400;
+			src: local('Lato Regular'), local('Lato-Regular'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-400.woff2) format('woff2'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-400.woff) format('woff'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-400.ttf) format('truetype');
+		}
+		@font-face {
+			font-family: 'Lato';
+			font-style: normal;
+			font-weight: 700;
+			src: local('Lato Bold'), local('Lato-Bold'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-700.woff2) format('woff2'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-700.woff) format('woff'), url(https://s.brightspace.com/lib/fonts/0.5.0/assets/Lato-700.ttf) format('truetype');
+		}
+
+		.d2l-typography {
+			color: var(--d2l-color-ferrite);
+			display: block;
+			font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+			letter-spacing: 0.01rem;
+			font-size: 0.95rem;
+			font-weight: 400;
+			line-height: 1.4rem;
+		}
+
+		.d2l-typography .d2l-body-standard {
+			font-size: 0.95rem;
+			font-weight: 400;
+			line-height: 1.4rem;
+		}
+
+		.d2l-typography .d2l-body-compact {
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.2rem;
+		}
+
+		.d2l-typography .d2l-body-small {
+			color: var(--d2l-color-tungsten);
+			font-size: 0.7rem;
+			font-weight: 400;
+			line-height: 1rem;
+			margin: auto;
+		}
+
+		.d2l-typography .d2l-label-text {
+			font-size: 0.7rem;
+			line-height: 1rem;
+			font-weight: 700;
+			letter-spacing: 0.2px;
+		}
+
+		.d2l-typography p {
+			margin: 1rem 0;
+		}
+
+		.d2l-typography:lang(ar),
+		.d2l-typography :lang(ar) {
+			font-family: 'Arabic Transparent', 'Arabic Typesetting', 'Geeza Pro', sans-serif;
+		}
+
+		.d2l-typography:lang(zh),
+		.d2l-typography :lang(zh) {
+			font-family: 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+		}
+
+		.d2l-typography:lang(ko),
+		.d2l-typography :lang(ko) {
+			font-family: 'Apple SD Gothic Neo', Dotum, sans-serif;
+		}
+
+		.d2l-typography:lang(ja),
+		.d2l-typography :lang(ja) {
+			font-family: 'Hiragino Kaku Gothic Pro', 'Meiyro', sans-serif;
+		}
+
+		.d2l-typography .d2l-heading-1 {
+			font-size: 2rem;
+			font-weight: 400;
+			line-height: 2.4rem;
+			margin: 1.5rem 0 1.5rem 0;
+		}
+
+		.d2l-typography .d2l-heading-2 {
+			font-size: 1.5rem;
+			font-weight: 400;
+			line-height: 1.8rem;
+			margin: 1.5rem 0 1.5rem 0;
+		}
+
+		.d2l-typography .d2l-heading-3 {
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 1.5rem;
+			margin: 1.5rem 0 1.5rem 0;
+		}
+
+		.d2l-typography .d2l-heading-4 {
+			font-size: 0.8rem;
+			font-weight: 700;
+			line-height: 1.2rem;
+			margin: 1.5rem 0 1.5rem 0;
+		}
+
+		@media (max-width: 615px) {
+
+			.d2l-typography .d2l-body-standard {
+				font-size: 0.8rem;
+				line-height: 1.2rem;
+			}
+
+			.d2l-typography .d2l-body-small {
+				font-size: 0.6rem;
+				line-height: 0.9rem;
+			}
+
+			.d2l-typography .d2l-heading-1 {
+				font-size: 1.5rem;
+				line-height: 1.8rem;
+			}
+
+			.d2l-typography .d2l-heading-2 {
+				font-size: 1rem;
+				font-weight: 700;
+				line-height: 1.5rem;
+			}
+
+			.d2l-typography .d2l-heading-3 {
+				font-size: 0.8rem;
+				line-height: 1.2rem;
+			}
+
+		}
+	</style></head>
+
+<body class="tile-progress">
+   <d2l-widget-config-editor><template shadowrootmode="open"><!----><!----></template></d2l-widget-config-editor>
+   <div class="alltiles"><div id="milestone0" class="miletile flip-container" data-ouid="7556449"><div class="flipper"><div class="front"><div class="headerarea"><a title="Go to Module Welcome - Start Here" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556449" target="_top"><div id="img_0" class="header-img" style="background-image: url(&quot;https://widgets.lcs.brightspace.com/widgets/visual_toc/20.24.3/img/tile-img-default-shared.jpeg&quot;)"></div></a><a title="Begin Welcome - Start Here" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556449" target="_top"><h3 style="color: rgb(24, 112, 194);">Welcome - Start Here</h3></a></div><div class="progress-container"><div class="progress"><div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #006FBF;" class="progress-bar"><span class="sr-only">100% Complete</span></div></div><p class="subtopic"><span>100%</span><span class="subtopic">5 of 5 Topics Completed</span></p></div><div class="quicknav"><div class="continue" aria-label="Complete" tab-index="-1"><div class="checkmark"><div></div></div></div></div></div></div></div><div id="milestone1" class="miletile flip-container" data-ouid="7556450"><div class="flipper"><div class="front"><div class="headerarea"><a title="Go to Module Syllabus &amp; Calendar" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556450" target="_top"><div id="img_1" class="header-img" style="background-image: url(&quot;https://widgets.lcs.brightspace.com/widgets/visual_toc/20.24.3/img/tile-img-default-shared.jpeg&quot;)"></div></a><a title="Begin Syllabus &amp; Calendar" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556450" target="_top"><h3 style="color: rgb(24, 112, 194);">Syllabus &amp; Calendar</h3></a></div><div class="progress-container"><div class="progress"><div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #006FBF;" class="progress-bar"><span class="sr-only">100% Complete</span></div></div><p class="subtopic"><span>100%</span><span class="subtopic">1 of 1 Topics Completed</span></p></div><div class="quicknav"><div class="continue" aria-label="Complete" tab-index="-1"><div class="checkmark"><div></div></div></div></div></div></div></div><div id="milestone2" class="miletile flip-container unread userActive" data-ouid="7556451"><div class="flipper"><div class="front"><div class="headerarea"><a title="Go to Module Lessons/Assignments" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556451" target="_top"><div id="img_2" class="header-img" style="background-image: url(&quot;https://widgets.lcs.brightspace.com/widgets/visual_toc/20.24.3/img/tile-img-default-shared.jpeg&quot;)"></div></a><a title="Begin Lessons/Assignments" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556451" target="_top"><h3 style="color: rgb(24, 112, 194);">Lessons/Assignments</h3></a></div><div class="progress-container"><div class="progress"><div role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; background-color: #006FBF;" class="progress-bar"><span class="sr-only">20% Complete</span></div></div><p class="subtopic"><span>20%</span><span class="subtopic">2 of 10 Topics Completed</span></p></div><div class="quicknav"><a href="https://dallascollege.brightspace.com/d2l/le/content/157957/viewContent/7556483/View" target="_top" class="continue blue" title="Next Topic: Hyperlinks and File Management"><div class="continueImg"><div></div></div></a></div><div class="userActiveBorder"></div></div></div></div><div id="milestone3" class="miletile flip-container" data-ouid="7556452"><div class="flipper"><div class="front"><div class="headerarea"><a title="Go to Module Help Forum" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556452" target="_top"><div id="img_3" class="header-img" style="background-image: url(&quot;https://widgets.lcs.brightspace.com/widgets/visual_toc/20.24.3/img/tile-img-default-shared.jpeg&quot;)"></div></a><a title="Begin Help Forum" href="https://dallascollege.brightspace.com/d2l/le/content/157957/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-7556452" target="_top"><h3 style="color: rgb(24, 112, 194);">Help Forum</h3></a></div><div class="progress-container"><div class="progress"><div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #006FBF;" class="progress-bar"><span class="sr-only">100% Complete</span></div></div><p class="subtopic"><span>100%</span><span class="subtopic">1 of 1 Topics Completed</span></p></div><div class="quicknav"><div class="continue" aria-label="Complete" tab-index="-1"><div class="checkmark"><div></div></div></div></div></div></div></div></div>
+   <script>const widgethost = "https://widgets.lcs.brightspace.com"; const v = "20.24.3";</script>
+   <!-- jQuery CDN w/ local fallback (Bootstrap Dependency) -->
+   <script src="./jquery-3.6.0.min.js.download"></script>
+   <!-- Bootstrap CDN JS -->
+   <script src="./bootstrap.min.js.download"></script>
+   <!-- Widget Scripts -->
+   <script src="./visual_toc.min.js.download"></script>
+
+
+
+</body></html>
