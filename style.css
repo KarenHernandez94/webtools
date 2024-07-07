@@ -1,49 +1,60 @@
 html {
-background-color: white;}
+background-color: #faf9f9}
 head {
-  background-color: pink;}
+  background-color: #faf9f9 ;}
 h1 {
-    background-color: pink;
+    background-color: #555b6e;
     text-align: center;
     font-size: 3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 footer {
-    background-color: pink;}
+    background-color: #555b6e;
+    font-family: 'Courier New', Courier, monospace;
+    color: #faf9f9;}
+    
 nav {text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    background-color: pink;
-    color: rgb(0, 0, 0);}
+    background-color: #555b6e;
+    color: #ffd6ba;}
 nav a {
   display: inline-block;
   padding: .5em;
-  color: rgb(0, 0, 0);
+  color: #ffd6ba;
   text-decoration: none;} 
-nav a:hover {background-color: rgb(247, 213, 139);}
+nav a:hover {background-color: #89b0ae;}
+
+
 table {
     border-collapse: collapse;
     width: 100%;}
   table caption {
     font-weight: 800;
-    font-size: 1.5rem;}
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffd6ba;}
   th,
   td {
     text-align: left;
     padding: 8px;}
   tr {
-    border-bottom: thin solid rgb(0, 0, 0);}
+    border-bottom: thin solid #ffd6ba;}
     thead tr {
-    background-color: rgb(247, 213, 139);
-    color: rgb(0, 0, 0);}
+    background-color: #555b6e;
+    color: #ffd6ba;}
     tbody tr:nth-child(even) {
-    background-color: rgb(177, 164, 150);}
+    background-color: #bee3db;}
     tbody tr:hover {
-    background-color: rgb(212, 201, 192);}
+    background-color: #89b0ae;}
   dt {
     background-color: rgb(247, 213, 139);}
 div img {border-collapse: collapse;
   padding: 8px;
   width: 700px;
   height: 500px; }
-caption {background-color: rgb(247, 213, 139);}
-  
+caption {background-color: #555b6e;}
+img {
+  border-collapse: collapse;
+  padding: 8px;
+  width: 700px;
+  height: 1000;}
   
