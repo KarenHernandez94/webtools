@@ -71,13 +71,9 @@ div img {border-collapse: collapse;
   }
 caption {background-color: #555b6e;
   }
-img {
-  border-collapse: collapse;
-  padding: 8px;
-  width: 700px;
-  height: 1000;
-  }
 section {
   color: black;
-}
-  
+  }
+figcaption {
+  color: black;
+}  
