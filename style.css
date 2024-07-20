@@ -97,8 +97,8 @@ aside {
   float: left;
  }
  h3 {clear transition-property:both;}
-
- h4 {
+ section{font-size: medium;}
+ picture {
   width: 30%;
   display: block;
   margin: 0px auto;
@@ -108,3 +108,4 @@ aside {
   box-shadow: 5px 10px 10px;
   color: black;
  }
+ p {font-size: x-large;}
