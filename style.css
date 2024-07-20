@@ -99,13 +99,16 @@ aside {
  h3 {clear transition-property:both;}
  section{font-size: medium;}
  picture {
-  width: 30%;
-  display: block;
-  margin: 0px auto;
-  }
- figure {
   width: 153px;
   box-shadow: 5px 10px 10px;
   color: black;
- }
+  margin: 0px auto;
+  display: block;
+   }
+ 
+ figure {
+  width: fit-content;
+  display: block;
+  margin: 0px auto;
+  }
  p {font-size: x-large;}
