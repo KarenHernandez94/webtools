@@ -97,8 +97,8 @@ aside {
   float: left;
  }
  h3 {clear transition-property:both;}
- 
- section{font-size: medium;}
+
+ section{font-size:medium;}
  figure {
   width: 153px;
   box-shadow: 5px 10px 10px;
@@ -109,3 +109,4 @@ aside {
  figcaption {
   color: black;
  }
+ p {font-size: medium;}
