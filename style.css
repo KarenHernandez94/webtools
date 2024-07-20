@@ -9,6 +9,7 @@ head {
   font-size: large;
   }
 h1 {
+  border: #555b6e;
     background-color: #555b6e;
     padding: .5em;
     text-align: center;
@@ -89,10 +90,10 @@ aside {
 	width: 350px;
 	margin: 5px;
 	padding: 15px;
-	border: 3px rgb(109, 109, 194) solid;
+	border: 3px rgb(17, 17, 131) solid;
   border-radius: 20px;
   border-style: solid;
-  border-color: #89b0ae;
+  border-color: #20a8a2;
   float: left;
  }
  h3 {clear transition-property:both;}
