@@ -110,3 +110,5 @@ aside {
   color: black;
  }
  p {font-size: medium;}
+ img {margin: 0px auto;
+display: block;}
