@@ -97,6 +97,7 @@ aside {
   float: left;
  }
  h3 {clear transition-property:both;}
+ h3 {font-size: medium;}
  h4 {
   width: 30%;
   display: block;
