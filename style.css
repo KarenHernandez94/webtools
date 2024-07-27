@@ -2,6 +2,7 @@ html, body {
   color: #ffd6ba;
   background-color: #faf9f9;
   font-size: large;
+  position: fixed;
 }
 
 head {
@@ -32,6 +33,9 @@ nav {
   background-color: #555b6e;
   color: #ffd6ba;
   font-size: larger;
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
 }
 
 nav a {
