@@ -112,3 +112,9 @@ aside {
  p {font-size: medium;}
  img {margin: 0px auto;
 display: block;}
+
+.email-link {
+  color:rgb(73, 221, 221);
+  text-decoration: none;
+}
+
