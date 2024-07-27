@@ -2,7 +2,6 @@ html, body {
   color: #ffd6ba;
   background-color: #faf9f9;
   font-size: large;
-  position: fixed;
 }
 
 head {
@@ -10,6 +9,7 @@ head {
   padding: .5em;
   color: black;
   font-size: large;
+  position: fixed;
 }
 
 h1 {
