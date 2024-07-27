@@ -96,7 +96,11 @@ aside {
   border-color: #20a8a2;
   float: left;
  }
- h3 {clear transition-property:both;}
+ h3 {
+  clear: both; 
+  transition-property: color, background-color; 
+  transition-duration: 0.3s; 
+}
 
  section{font-size:medium;}
  figure {
@@ -122,8 +126,4 @@ aside {
  img {margin: 0px auto;
 display: block;}
 
-.email-link {
-  color:aquamarine;
-  text-decoration: none;
-}
 
