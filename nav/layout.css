@@ -1,6 +1,12 @@
 /* layout.css */
 
 /* Reset some default styles */
+html, body {
+    color: #ffd6ba;
+    background-color: #faf9f9;
+    font-size: large;
+  }
+
 body, h1, p, ul, figure, footer {
     margin: 0;
     padding: 0;
@@ -102,6 +108,7 @@ body, h1, p, ul, figure, footer {
   
   .email-link {
     color: #80f5bd;
+
   }
   
   /* Responsive design */
