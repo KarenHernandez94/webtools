@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favi/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Karen Hernandez</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="layout.css">
     <link rel="apple-touch-icon" sizes="57x57" href="favi/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favi/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="favi/apple-icon-72x72.png">
@@ -10,101 +19,99 @@
     <link rel="apple-touch-icon" sizes="144x144" href="favi/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="favi/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favi/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favi/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favi/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favi/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favi/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favi/favicon-16x16.png">
     <link rel="manifest" href="favi/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="favi/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karen Hernandez</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="layout.css">
-  
 </head>
-
 
 <body>
     <header>
         <h1>Main heading for the page</h1>
         <figure>
-          <img src="images/portrait-thumb.jpg" alt="Self" width="150" height="150">
-          <figcaption>Karen Hernandez</figcaption>
+            <img src="images/portrait-thumb.jpg" alt="Self" width="150" height="150">
+            <figcaption>Karen Hernandez</figcaption>
         </figure>
     </header>
+    
     <nav>
-      <a href="index.html">Home</a> | <a href="aboutme.html">About Me</a> | <a href="faq.html">FAQ</a> 
-      | <a href="contact-us.html"> Contact</a>
+        <a href="index.html">Home</a> | 
+        <a href="aboutme.html">About Me</a> | 
+        <a href="faq.html">FAQ</a> | 
+        <a href="contact-us.html">Contact</a>
     </nav>
+    
     <section>
         <h2>Contact Me!</h2>
         <article>
             <div>Below is a way to reach out</div>
             <p>Feel free to leave feedback, ask questions, leave comments, and email me about travel plans!</p>
             <fieldset>
-              <legend>Give Feedback.</legend>
-              <div>Personal Information</div>
-              <form id="myMailerForm" method="post" action="mailto:e2702319@student.dcccd.edu">
-                <p>
-                  <label title="Enter your full name.">Name <input type="text" name="Name" placeholder="Name"></label>
-                </p>
-                <p>
-                  <label title="Enter your email address.">E-Mail <input type="text" name="Email" placeholder="Email"></label>
-                </p>
-                <p>
-                  <label title="Select your program.">Topics>
-                    <select name="topicsID">
-                      <option value="">&larr;&nbsp;Select Topic&nbsp;&rarr;</option>
-                      <option value="1">Painting</option>
-                      <option value="2">Photography</option>
-                      <option value="3">Languages</option>
-                      <option value="4">Sewing</option>
-                      <option value="5">Basic Drawing</option>
-                      <option value="6"> Travel</option>
-                    </select>
-                </p>
-                <p>
-                  <form>
-                    <div>
-                      <input type="checkbox" id="follow-up" name="Follow-Up">
-                      <label for="follow-up">Follow-Up</label>
-                    </div>
-                    
-                    <div>
-                      <input type="checkbox" id="plans" name="Plans">
-                      <label for="plans">Plans</label>
-                    </div>
-                  </form>
-                </p>
-                <div>Message</div>
-                <p>
-                  <label title="Select if you have a question.">Question <input type="radio" name="request"></label>
-                  <br>
-                  <label title="Select if you have a comment.">Comment <input type="radio" name="request"></label>
-                </p>
-                <p>
-                  <label for="message">Message</label><br>
-                  <textarea id="message" name="message"></textarea>
-                </p>
-                <input type="submit" name="submit" value="Send Mail"> &emsp;
-                <input type="Reset" value="Reset">
-              </form>
+                <legend>Give Feedback</legend>
+                <div>Personal Information</div>
+                <form id="myMailerForm" method="post" action="mailto:e2702319@student.dcccd.edu">
+                    <p>
+                        <label title="Enter your full name.">Name 
+                            <input type="text" name="Name" placeholder="Name">
+                        </label>
+                    </p>
+                    <p>
+                        <label title="Enter your email address.">E-Mail 
+                            <input type="text" name="Email" placeholder="Email">
+                        </label>
+                    </p>
+                    <p>
+                        <label title="Select your program.">Topics
+                            <select name="topicsID">
+                                <option value="">&larr;&nbsp;Select Topic&nbsp;&rarr;</option>
+                                <option value="1">Painting</option>
+                                <option value="2">Photography</option>
+                                <option value="3">Languages</option>
+                                <option value="4">Sewing</option>
+                                <option value="5">Basic Drawing</option>
+                                <option value="6">Travel</option>
+                            </select>
+                        </label>
+                    </p>
+                    <p>
+                        <div>
+                            <input type="checkbox" id="follow-up" name="Follow-Up">
+                            <label for="follow-up">Follow-Up</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="plans" name="Plans">
+                            <label for="plans">Plans</label>
+                        </div>
+                    </p>
+                    <div>Message</div>
+                    <p>
+                        <label title="Select if you have a question.">Question 
+                            <input type="radio" name="request" value="question">
+                        </label>
+                        <br>
+                        <label title="Select if you have a comment.">Comment 
+                            <input type="radio" name="request" value="comment">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="message">Message</label><br>
+                        <textarea id="message" name="message"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" name="submit" value="Send Mail"> &emsp;
+                        <input type="reset" value="Reset">
+                    </p>
+                </form>
             </fieldset>
-		</Article>
-        <p> Below you can also click on the hyperlink and send an email. Thank you!</p>
-        </section>
-        <footer>
-          <p><em><small>&copy; 2024 Karen Hernandez. All rights reserved.</small></em></p>
-      
-          Visit the<a href="https://ecampus.dallascollege.edu/" target="window2" style="color: rgb(80, 243, 189); background-color: rgb(85, 91, 110); text-decoration: none;">
-            Dallas College
-        </a>to access class courses
-          <a href="mailto:e2702319@student.dcccd.edu" class="email-link" style="color: rgb(80, 243, 189);">
-            Email the creator
-        </a>
-      </footer>
+        </article>
+        <p>Below you can also click on the hyperlink and send an email. Thank you!</p>
+    </section>
+    
+    <footer>
+        <p><em><small>&copy; 2024 Karen Hernandez. All rights reserved.</small></em></p>
+        <p>Visit the <a href="https://ecampus.dallascollege.edu/" target="window2" style="color: rgb(80, 243, 189); background-color: rgb(85, 91, 110); text-decoration: none;">Dallas College</a> to access class courses</p>
+        <p><a href="mailto:e2702319@student.dcccd.edu" class="email-link" style="color: rgb(80, 243, 189);">Email the creator</a></p>
+    </footer>
 </body>
+</html>
