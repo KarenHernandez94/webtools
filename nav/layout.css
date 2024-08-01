@@ -1,129 +1,111 @@
-/* layout.css */
+/* General resets and base styles */
+body {
+  display: grid;
+  grid-template-areas:
+      "header header header"
+      "nav nav nav"
+      "main main main"
+      "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100vh;
+}
 
-/* Reset some default styles */
-html, body {
-    color: #ffd6ba;
-    background-color: #faf9f9;
-    font-size: large;
-  }
+/* Header Styling */
+header {
+  grid-area: header;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
 
-body, h1, p, ul, figure, footer {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* General body styles */
+header figure {
+  margin: 0;
+}
+
+header img {
+  border-radius: 50%;
+}
+
+header nav {
+  margin-top: 1rem;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0 1rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styling */
+main {
+  grid-area: main;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+aside {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+}
+
+aside img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Footer Styling */
+footer {
+  grid-area: footer;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
   }
-  
-  /* Header styles */
-  h1 {
-    text-align: center;
-    margin-top: 1em;
-    color: #333;
-  }
-  
-  figure {
-    text-align: center;
-    margin: 1em 0;
-  }
-  
-  figure img {
-    border-radius: 50%;
-  }
-  
-  /* Navigation styles */
-  nav {
-    display: flex;
-    justify-content: center;
-    background-color: #eee;
-    padding: 0.5em 0;
-  }
-  
-  nav a {
-    color: #333;
-    text-decoration: none;
-    padding: 0 1em;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Main content styles */
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-  }
-  
-  section {
-    max-width: 800px;
-    margin: 1em 0;
-    text-align: center;
-  }
-  
-  section img {
-    margin: 1em;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul li {
-    background-color: #fff;
-    margin: 0.5em 0;
-    padding: 0.5em;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Footer styles */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: relative;
-  }
-  
-  footer a {
-    color: #80f5bd;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  .email-link {
-    color: #80f5bd;
-
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    nav {
-      flex-direction: column;
-    }
-  
-    nav a {
-      padding: 0.5em 0;
-    }
-  
-    section img {
-      width: 100%;
-      max-width: 200px;
-    }
-  }
-  
+}

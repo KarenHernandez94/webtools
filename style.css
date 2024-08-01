@@ -1,7 +1,11 @@
+/* General resets and base styles */
 html, body {
   color: #ffd6ba;
   background-color: #faf9f9;
   font-size: large;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 head {
@@ -10,10 +14,14 @@ head {
   color: black;
   font-size: large;
   position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Header Styling */
 h1 {
-  border: 3px solid #555b6e; 
+  border: 3px solid #555b6e;
   background-color: #555b6e;
   padding: .5em;
   text-align: center;
@@ -21,12 +29,7 @@ h1 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-footer {
-  background-color: #555b6e;
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
-}
-
+/* Navigation Styling */
 nav {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -34,7 +37,7 @@ nav {
   color: #ffd6ba;
   font-size: larger;
   position: sticky;
-  top: 0; 
+  top: 0;
   z-index: 1000;
 }
 
@@ -49,11 +52,12 @@ nav a:hover {
   background-color: #89b0ae;
 }
 
+/* Table Styling */
 table {
   width: 80%;
-  border: 5px dashed #ffd6ba; 
+  border: 5px dashed #ffd6ba;
   min-width: 48em;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 table caption {
@@ -62,7 +66,7 @@ table caption {
   font-family: Arial, Helvetica, sans-serif;
   color: #ffd6ba;
   border-radius: 9px;
-  border: 2px dashed #ffd6ba; 
+  border: 2px dashed #ffd6ba;
 }
 
 td {
@@ -92,31 +96,33 @@ dt {
   background-color: #89b0ae;
 }
 
+/* Images */
 div img {
   padding: 8px;
   width: 700px;
   height: 500px;
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
-caption {
-  background-color: #555b6e;
-  color: black; 
+img {
+  display: block;
+  margin: 0 auto;
 }
 
+/* Section and Figure Styling */
 section {
   color: black;
-  font-size: medium; 
+  font-size: medium;
 }
 
 figure {
   width: 153px;
-  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5); 
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
   color: black;
   margin: 0 auto;
   display: block;
-  text-align: center; 
+  text-align: center;
 }
 
 figcaption {
@@ -134,11 +140,4 @@ h3 {
 p {
   font-size: medium;
 }
-
-img {
-  display: block;
-  margin: 0 auto;
-}
-
-
 
