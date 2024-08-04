@@ -1,145 +1,152 @@
 /* General resets and base styles */
 html, body {
-  color: #ffd6ba;
+  color: #555b6e; /* Darker text color for better readability */
   background-color: #faf9f9;
-  font-size: large;
+  font-size: 16px; /* More consistent font size */
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-head {
-  background-color: #faf9f9;
-  padding: .5em;
-  color: black;
-  font-size: large;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+/* Header Styling */
+header {
+  grid-area: header;
+  background-color: #555b6e;
+  color: #ffd6ba;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
 }
 
-/* Header Styling */
-h1 {
-  border: 3px solid #555b6e;
+header h1 {
+  border: 3px solid #ffd6ba;
   background-color: #555b6e;
-  padding: .5em;
-  text-align: center;
-  font-size: 3em;
+  padding: 0.5em;
+  font-size: 2.5rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
 }
 
 /* Navigation Styling */
 nav {
   text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: #555b6e;
   color: #ffd6ba;
-  font-size: larger;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
 }
 
 nav a {
   display: inline-block;
-  padding: .5em;
+  padding: 0.5em 1em;
   color: #ffd6ba;
   text-decoration: none;
 }
 
 nav a:hover {
   background-color: #89b0ae;
+  color: #ffffff;
 }
 
 /* Table Styling */
 table {
-  width: 80%;
-  border: 5px dashed #ffd6ba;
-  min-width: 48em;
-  margin: 0 auto;
+  width: 100%;
+  border-radius: 8px;
+  border-collapse: separate; /* Allows for rounded corners */
+  border-spacing: 0; /* Removes gaps between cells */
+  margin: 2rem 0;
+  background-color: #ffffff; /* Light background for the table */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
 }
 
 table caption {
-  font-weight: 800;
-  font-size: 1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffd6ba;
-  border-radius: 9px;
-  border: 2px dashed #ffd6ba;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #555b6e;
+  padding: 1rem;
+  background-color: #ffd6ba; /* Soft background for the caption */
+  border-radius: 8px 8px 0 0; /* Rounded corners on top */
+  border: none;
 }
 
-td {
+thead {
+  background-color: #555b6e; /* Darker background for header */
+  color: #ffd6ba;
+}
+
+thead th {
+  padding: 1rem;
   text-align: left;
-  padding: 8px;
 }
 
-tr {
-  border-bottom: thin solid #ffd6ba;
-  color: black;
-}
-
-thead tr {
-  background-color: #555b6e;
-  color: #ffd6ba;
+tbody tr {
+  border-bottom: 1px solid #ddd; /* Light border for rows */
 }
 
 tbody tr:nth-child(even) {
-  background-color: #bee3db;
+  background-color: #f9f9f9; /* Alternating row color */
 }
 
 tbody tr:hover {
-  background-color: #89b0ae;
+  background-color: #f0f0f0; /* Hover effect for rows */
 }
 
-dt {
-  background-color: #89b0ae;
+td, th {
+  padding: 1rem;
+  text-align: left;
 }
+
+td {
+  background-color: #ffffff; /* Background color for cells */
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners for cells */
+}
+
 
 /* Images */
-div img {
-  padding: 8px;
-  width: 700px;
-  height: 500px;
-  display: block;
-  margin: 0 auto;
-}
-
 img {
+  max-width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 /* Section and Figure Styling */
 section {
-  color: black;
-  font-size: medium;
+  color: #555b6e;
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 
 figure {
-  width: 153px;
-  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
-  color: black;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #555b6e;
   margin: 0 auto;
-  display: block;
   text-align: center;
 }
 
 figcaption {
-  color: black;
+  color: #555b6e;
   font-style: italic;
   margin-top: 0.5em;
 }
 
-h3 {
-  clear: both;
-  transition-property: color, background-color;
-  transition-duration: 0.3s;
+/* Footer Styling */
+footer {
+  grid-area: footer;
+  background-color: #555b6e;
+  color: #ffd6ba;
+  text-align: center;
+  padding: 1rem;
 }
 
-p {
-  font-size: medium;
+footer a {
+  color: #ffd6ba;
+  text-decoration: none;
 }
 
-footer {color: #555b6e;
-background-color:#89b0ae;}
+footer a:hover {
+  text-decoration: underline;
+}

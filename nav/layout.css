@@ -2,21 +2,22 @@
 body {
   display: grid;
   grid-template-areas:
-      "header header header"
-      "nav nav nav"
-      "main main main"
-      "footer footer footer";
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr 1fr 1fr;
+      "header"
+      "nav"
+      "main"
+      "footer";
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 1fr;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header Styling */
 header {
   grid-area: header;
-  background-color: #4CAF50;
-  color: white;
-  text-align: center;
+  background-color: #555b6e;
+  color: #ffd6ba;
   padding: 1rem;
 }
 
@@ -26,6 +27,7 @@ header figure {
 
 header img {
   border-radius: 50%;
+  max-width: 150px;
 }
 
 header nav {
@@ -33,7 +35,7 @@ header nav {
 }
 
 header nav a {
-  color: white;
+  color: #ffd6ba;
   text-decoration: none;
   padding: 0 1rem;
 }
@@ -47,8 +49,11 @@ main {
   grid-area: main;
   padding: 2rem;
   background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Aside Styling */
 aside {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -60,45 +65,13 @@ aside img {
   border-radius: 8px;
 }
 
-/* Table Styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-table, th, td {
-  border: 1px solid #ddd;
-}
-
-th, td {
-  padding: 0.5rem;
-  text-align: left;
-}
-
-th {
-  background-color: #f4f4f4;
-}
-
 /* Footer Styling */
 footer {
   grid-area: footer;
-  background-color: #333;
-  color: #333;
+  background-color: #555b6e;
+  color: #ffd6ba;
   text-align: center;
   padding: 1rem;
-}
-
-footer a {
-  color: #333;
-  text-decoration: none;
-  background-color: #333;
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: #333;
-  background-color: #333;
 }
 
 /* Responsive Design */
@@ -112,3 +85,4 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+
