@@ -10,13 +10,10 @@ html, body {
 
 /* Header Styling */
 header {
-  grid-area: header;
   background-color: #555b6e;
   color: #ffd6ba;
-  padding: 1rem;
   text-align: center;
-  position: relative;
-}
+ }
 
 header h1 {
   border: 3px solid #ffd6ba;
@@ -84,11 +81,11 @@ tbody tr {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Alternating row color */
+  background-color: #78f1eb; /* Alternating row color */
 }
 
 tbody tr:hover {
-  background-color: #f0f0f0; /* Hover effect for rows */
+  background-color: #7ac0e0; /* Hover effect for rows */
 }
 
 td, th {
@@ -97,8 +94,8 @@ td, th {
 }
 
 td {
-  background-color: #ffffff; /* Background color for cells */
-  border-radius: 0 0 8px 8px; /* Rounded bottom corners for cells */
+  background-color: #ffffff; 
+  border-radius: 0 0 8px 8px; 
 }
 
 
