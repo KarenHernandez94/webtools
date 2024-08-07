@@ -68,6 +68,11 @@ main {
   clear: both;
 }
 
+.list {
+  text-align: center;
+  
+}
+
 /* Aside Styling */
 aside {
   grid-area: aside;
