@@ -130,6 +130,11 @@ figcaption {
   margin-top: 0.5em;
 }
 
+.class {
+  text-align: center;
+  font-family:cursive;
+}
+
 /* Footer Styling */
 footer {
   grid-area: footer;
